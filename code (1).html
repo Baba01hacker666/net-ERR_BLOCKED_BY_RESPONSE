@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacked by Nobita Cyber Sec</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+        body {
+            background-color: #000000;
+            color: #00FF00;
+            font-family: 'Roboto Mono', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .container {
+            padding: 25px 35px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.7), 0 0 40px rgba(0, 255, 0, 0.5) inset;
+            background-color: rgba(0, 10, 0, 0.8);
+            animation: flicker 0.2s infinite alternate;
+            border-radius: 10px;
+            position: relative;
+            z-index: 1; /* Base layer */
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8em;
+            color: #FF0000;
+            text-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000, 0 0 15px #FF0000;
+            margin-top: 0;
+            margin-bottom: 15px;
+            word-wrap: break-word;
+        }
+
+        .team-name-h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00FF00;
+            font-weight: 700;
+            font-size: 2.3em;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
+        }
+
+        .team-name-span {
+            color: #00FF00;
+            font-weight: bold;
+        }
+
+        img.logo {
+            max-width: 350px;
+            width: 80%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px #00FF00, 0 0 5px #FFFFFF;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            color: #00FF00;
+        }
+
+        .blinking-cursor {
+            animation: blink 1s step-end infinite;
+            font-weight: bold;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .footer-text {
+            margin-top: 30px;
+            font-size: 1em;
+            color: #00FF00;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00FF00;
+        }
+
+        .telegram-link {
+            margin-top: 10px; /* Added margin for separation */
+            font-size: 1.1em;
+        }
+
+        .telegram-link a {
+            color: #00FFFF; /* Cyan color for the link */
+            text-decoration: none;
+            font-weight: bold;
+            text-shadow: 0 0 3px #00FFFF, 0 0 5px #00FFFF;
+        }
+        .telegram-link a:hover {
+            color: #FFFFFF;
+            text-shadow: 0 0 5px #FFFFFF, 0 0 8px #FFFFFF;
+        }
+
+
+        @keyframes flicker {
+            0% { opacity: 1; box-shadow: 0 0 25px rgba(0, 255, 0, 0.7), 0 0 40px rgba(0, 255, 0, 0.5) inset;}
+            50% { opacity: 0.98; box-shadow: 0 0 28px rgba(0, 255, 0, 0.75), 0 0 42px rgba(0, 255, 0, 0.55) inset;}
+            100% { opacity: 1; box-shadow: 0 0 25px rgba(0, 255, 0, 0.7), 0 0 40px rgba(0, 255, 0, 0.5) inset;}
+        }
+
+        /* --- STYLES FOR THE POPUP WARNING --- */
+        .popup-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent backdrop */
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            z-index: 1000; /* Above main content */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .popup-message-box {
+            background-color: #0A0A0A; /* Very dark background for the box */
+            color: #FF0000; /* Red text */
+            padding: 30px 40px;
+            border: 2px solid #FF0000;
+            border-radius: 8px;
+            box-shadow: 0 0 30px #FF0000, 0 0 15px #FF0000 inset;
+            text-align: center;
+            max-width: 550px; /* Max width of the popup */
+            width: 90%;
+            font-family: 'Orbitron', sans-serif;
+            animation: popupFlicker 0.3s infinite alternate;
+        }
+
+        @keyframes popupFlicker {
+            0% { box-shadow: 0 0 30px #FF0000, 0 0 15px #FF0000 inset; opacity: 1;}
+            100% { box-shadow: 0 0 35px #FF0000, 0 0 20px #FF0000 inset; opacity: 0.95;}
+        }
+
+        .popup-message-box h2 {
+            font-size: 2.5em; /* Adjusted for popup */
+            text-shadow: 0 0 8px #FF0000, 0 0 15px #FF0000;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .popup-message-box .popup-team-name {
+            font-family: 'Orbitron', sans-serif; /* Ensure Orbitron */
+            font-size: 2.8em; /* Larger for team name */
+            color: #00FF00; /* Green for team name */
+            font-weight: bold;
+            display: block;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px #00FF00, 0 0 15px #00FF00;
+        }
+        .popup-message-box .popup-subtext {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.1em;
+            color: #00FF00; /* Green subtext */
+            margin-top: 15px;
+        }
+        /* --- END POPUP STYLES --- */
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            .team-name-h2 { font-size: 1.8em; }
+            p, .tagline { font-size: 1.1em; }
+            .container { padding: 20px 25px; width: 95%; }
+            img.logo { max-width: 280px; width: 75%; margin-bottom: 20px; }
+            .tagline { margin-top: 15px; margin-bottom: 25px; }
+            .telegram-link { font-size: 1em; }
+
+            .popup-message-box h2 { font-size: 2em; }
+            .popup-message-box .popup-team-name { font-size: 2.2em; }
+            .popup-message-box .popup-subtext { font-size: 1em; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .container { padding: 15px 20px; margin-top: 15px; margin-bottom: 15px; }
+            h1 { font-size: 1.8em; margin-bottom: 10px; }
+            .team-name-h2 { font-size: 1.5em; margin-bottom: 20px; }
+            p, .tagline { font-size: 1em; line-height: 1.5; }
+            img.logo { max-width: 200px; width: 70%; margin-top: 20px; margin-bottom: 15px; }
+            .tagline { margin-top: 15px; margin-bottom: 20px; }
+            .footer-text { font-size: 0.9em; margin-top: 20px; }
+            .telegram-link { font-size: 0.95em; }
+
+            .popup-message-box { padding: 20px 25px; }
+            .popup-message-box h2 { font-size: 1.6em; }
+            .popup-message-box .popup-team-name { font-size: 1.8em; }
+            .popup-message-box .popup-subtext { font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SYSTEM COMPROMISED</h1>
+        <p>This system has been pwned by</p>
+        <h2 class="team-name-h2">NOBITA CYBER SEC</h2>
+        <img class="logo" src="https://i.imgur.com/8qKlHuy.jpeg" alt="Nobita Cyber Sec Team Logo">
+        <p class="tagline">Your security was just an illusion<span class="blinking-cursor">_</span></p>
+        <p class="footer-text">Greetings from <span class="team-name-span">Nobita Cyber Sec</span>!</p>
+        <!-- Added Telegram Link Here -->
+        <p class="telegram-link">
+            Join our Telegram Channel: <a href="https://t.me/nobitacybersec" target="_blank" rel="noopener noreferrer">@nobitacybersec</a>
+        </p>
+    </div>
+
+    <!-- Popup Warning Structure -->
+    <div id="popupBackdrop" class="popup-backdrop">
+        <div class="popup-message-box">
+            <h2>HACKED BY</h2>
+            <span class="popup-team-name">NOBITA CYBER SEC</span>
+            <p class="popup-subtext">(DevTools access rejected)</p>
+        </div>
+    </div>
+
+    <script>
+        const popupBackdrop = document.getElementById('popupBackdrop');
+
+        function showPopupWarning() {
+            if (popupBackdrop) {
+                popupBackdrop.style.display = 'flex'; // Use flex to center the message box
+            }
+        }
+
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            showPopupWarning();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            let prevented = false;
+            // F12
+            if (e.key === 'F12' || e.keyCode === 123) {
+                prevented = true;
+            }
+            // Ctrl+Shift+I (Cmd+Option+I on Mac)
+            if (((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) ||
+                (e.metaKey && e.altKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73))) {
+                prevented = true;
+            }
+            // Ctrl+Shift+J (Cmd+Option+J on Mac)
+            if (((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) ||
+                (e.metaKey && e.altKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74))) {
+                prevented = true;
+            }
+            // Ctrl+Shift+C (Cmd+Option+C on Mac)
+            if (((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) ||
+                (e.metaKey && e.altKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67))) {
+                prevented = true;
+            }
+            // Ctrl+U (Cmd+U / Cmd+Option+U on Mac)
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
+                if (e.metaKey && e.altKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) { // Cmd+Option+U
+                     prevented = true;
+                } else if ((e.ctrlKey || e.metaKey) && !e.altKey) { // Ctrl+U or Cmd+U
+                     prevented = true;
+                }
+            }
+
+            if (prevented) {
+                e.preventDefault();
+                showPopupWarning();
+            }
+        });
+
+        // Optional: Console messages
+        console.log("%cNobita Cyber Sec was here.", "color: #00FF00; font-size: 20px; font-family: 'Orbitron', monospace; text-shadow: 0 0 5px #00FF00;");
+        console.log("%cSystem integrity: Questionable. Threat level: Elevated. Fun level: Maximum.", "color: #FF0000; font-family: 'Roboto Mono', monospace;");
+        console.warn("If you're seeing this, you found a way around... or you're just curious!");
+    </script>
+</body>
+</html>
